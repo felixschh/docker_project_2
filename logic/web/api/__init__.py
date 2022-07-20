@@ -52,7 +52,8 @@ class Striver_api(Resource):
             db.session.add(Striver(email=email_, name=name_))
             db.session.commit()
             return {'email': email_, 'name': name_}
-        except:
-            return {'ERROR': "Coulden't insert email"}
+        except Exception as exp:
+            print(exp)
+            return {'ERROR': "Couldn't insert email"}
 
 api.add_resource(Striver_api, '/striver')
