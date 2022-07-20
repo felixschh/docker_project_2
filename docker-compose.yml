@@ -7,11 +7,11 @@ services:
     build: ./logic/web/
     command: python manager.py run -h 0.0.0.0
     volumes:
-      - ./logic/web/:/usr/src/app/
+    - ./logic/web/:/usr/src/app/
     ports:
-      - 5000:5000
+    - 5000:5000
     env_file:
-      - ./venv.dev
+    - ./.env.dev
     depends_on:
       db:
         condition: service_healthy
